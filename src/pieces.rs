@@ -76,12 +76,12 @@ impl Piece {
                         if color_of_square(new_position, &pieces).is_none() {
                             return true;
                         }
+                    }
 
-                        // take piece
-                        if new_position.0 as i8 - self.x as i8 == 1 && (self.y as i8 - new_position.1 as i8).abs() == 1 {
-                            if color_of_square(new_position, &pieces) == Some(PieceColor::Black) {
-                                return true;
-                            }
+                    // take piece
+                    if new_position.0 as i8 - self.x as i8 == 1 && (self.y as i8 - new_position.1 as i8).abs() == 1 {
+                        if color_of_square(new_position, &pieces) == Some(PieceColor::Black) {
+                            return true;
                         }
                     }
                 } else {
@@ -97,14 +97,14 @@ impl Piece {
                         if color_of_square(new_position, &pieces).is_none() {
                             return true;
                         }
-
-                        // take piece
-                        if new_position.0 as i8 - self.x as i8 == -1 && (self.y as i8 - new_position.1 as i8).abs() == 1 {
-                            if color_of_square(new_position, &pieces) == Some(PieceColor::White) {
-                                return true;
-                            }
-                        }
                     }  
+
+                    // take piece
+                    if new_position.0 as i8 - self.x as i8 == -1 && (self.y as i8 - new_position.1 as i8).abs() == 1 {
+                        if color_of_square(new_position, &pieces) == Some(PieceColor::White) {
+                            return true;
+                        }
+                    }
                 }
             }
         }

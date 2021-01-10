@@ -7,6 +7,9 @@ use pieces::*;
 mod board;
 use board::*;
 
+mod ui;
+use ui::*;
+
 fn main() {
     App::build().add_resource(Msaa {samples: 4})
     .add_resource(WindowDescriptor {title: "Chess".to_string(), width: 1200., height: 800., ..Default::default()})
@@ -14,6 +17,7 @@ fn main() {
     .add_plugin(PickingPlugin)
     .add_plugin(BoardPlugin)
     .add_plugin(PiecesPlugin)
+    .add_plugin(UIPlugin)
     .add_startup_system(setup.system())
     .run();
 }
